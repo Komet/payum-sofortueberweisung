@@ -22,7 +22,7 @@ class StatusAction implements ActionInterface
 
         if (!isset($details['status'])
            && isset($details['transaction_id'])
-           && $details['expires'] < time()) {
+           && $details['expires'] && $details['expires'] < time()) {
             $request->markExpired();
 
             return;
